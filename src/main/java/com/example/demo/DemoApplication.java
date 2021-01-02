@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 
 @EnableTransactionManagement
-@MapperScan("com.carson.cachedemo.mapper")
+//@MapperScan("com.example.demo.*.mapper")
 @EnableScheduling
 @EnableCaching
 public class DemoApplication {
