@@ -1,11 +1,11 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.User;
-import com.example.demo.dao.UserDao;
+import com.example.demo.dao.UserDaoMapper;
 import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -13,12 +13,12 @@ import java.util.List;
 (User)表服务实现类
  *
  * @author makejava
- * @since 2021-01-02 21:22:26
+ * @since 2021-01-03 12:43:33
  */
-@Service("userService")
+@Service()
 public class UserServiceImpl implements UserService {
-    @Resource
-    private UserDao userDao;
+    @Autowired
+    private UserDaoMapper userDaoMapper;
 
     /**
      * 通过ID查询单条数据
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User queryById(String id) {
-        return this.userDao.queryById(id);
+        return this.userDaoMapper.queryById(id);
     }
 
     /**
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<User> queryAllByLimit(int offset, int limit) {
-        return this.userDao.queryAllByLimit(offset, limit);
+        return this.userDaoMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User insert(User user) {
-        this.userDao.insert(user);
+        this.userDaoMapper.insert(user);
         return user;
     }
 
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User update(User user) {
-        this.userDao.update(user);
+        this.userDaoMapper.update(user);
         return this.queryById(user.getId());
     }
 
@@ -75,6 +75,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean deleteById(String id) {
-        return this.userDao.deleteById(id) > 0;
+        return this.userDaoMapper.deleteById(id) > 0;
     }
 }

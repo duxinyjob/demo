@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -9,9 +10,9 @@ import java.util.List;
 (User)表数据库访问层
  *
  * @author makejava
- * @since 2021-01-02 21:22:25
+ * @since 2021-01-03 12:43:32
  */
-public interface UserDao {
+public interface UserDaoMapper {
 
     /**
      * 通过ID查询单条数据

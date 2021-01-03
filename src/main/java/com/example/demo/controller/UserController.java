@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -11,7 +12,7 @@ import javax.annotation.Resource;
 (User)表控制层
  *
  * @author makejava
- * @since 2021-01-02 21:22:26
+ * @since 2021-01-03 12:43:33
  */
 @RestController
 @RequestMapping("user")
@@ -19,7 +20,7 @@ public class UserController {
     /**
      * 服务对象
      */
-    @Resource
+    @Autowired
     private UserService userService;
 
     /**
