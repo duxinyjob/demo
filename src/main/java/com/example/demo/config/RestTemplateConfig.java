@@ -1,6 +1,7 @@
 package com.example.demo.config;
 
 import com.sun.xml.internal.messaging.saaj.packaging.mime.Header;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.logging.Logger;
 import org.mybatis.logging.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -17,10 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 @Configuration
 public class RestTemplateConfig {
-
-    private static final Logger logger= LoggerFactory.getLogger(RestTemplateConfig.class);
 
     @Bean
     public RestTemplate restTemplate() {
@@ -41,7 +41,7 @@ public class RestTemplateConfig {
         HttpMessageConverter<?> converter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
         converterList.add(1,converter);
 
-        LOGGER.info("-----restTemplate-----初始化完成");
+        log.info("-----restTemplate-----初始化完成");
         return restTemplate;
     }
 
